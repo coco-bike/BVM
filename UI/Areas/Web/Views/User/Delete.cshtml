@@ -1,0 +1,44 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <script src="~/Scripts/jquery-1.8.2.min.js"></script>
+    <script src="~/Scripts/jquery-1.8.2.js"></script>
+    <title>DeleteUserInfo</title>
+</head>
+<body>
+    <div>
+        <label> 删除用户</label>
+        <input type="text" name="" id="user"/>
+        <input type="button" value="删除" onclick=deleteuser()>
+    </div>
+</body>
+</html>
+<script>
+    function deleteuser() {
+        var userText = $("#user").val();
+        $.ajax({
+            type: "post",
+            url: "../../web/user/DeleteUserInfo",
+            dataType: "json",
+            data: JSON.stringify({mail:userText}),
+            contentType: "application/json;charset=utf-8",
+            success: function (data) {
+                if (data.Status == 1) {
+                    alert("删除成功")
+                }
+                if (data.Status != 1) {
+                    alert("失败")
+                }
+            },
+            error: function () {
+                alert("出现异常")
+            }
+        });
+    }
+</script>

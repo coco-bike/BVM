@@ -1,0 +1,37 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>DownFiles</title>
+</head>
+<body>
+    <div class="content">
+        <input type="button" value="点击下载" id="download">
+    </div>
+    <a href="http://localhost:51688/Images/WallImages/imagepath/1.pdf" download="1">点击下载</a>
+</body>
+</html>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+<script>
+    $(function(){
+       $('#download').click(function(){
+           var url= "http://localhost:51688/Images/WallImages/imagepath/1.pdf";
+           var imgpath = 'C:/Users/hihi_zh/Downloads/1.pdf';
+           $.ajax({
+               type:'post',
+               url:'/Admin/home/SaveDownload',
+               data:{uri:url,filefullpath:imgpath},
+               dataType:'json',
+               success:function(data){
+                   alert(data.Message);
+               },
+               error:function(data){
+                   alert(data.Message);
+               }
+           })
+       });
+    })
+</script>

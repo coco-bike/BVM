@@ -1,0 +1,53 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="https://cdn.bootcss.com/bootstrap/4.0.0-beta.2/css/bootstrap.css" rel="stylesheet">
+    <link href="~/Scripts/dropzone/basic.css" rel="stylesheet" />
+    <link href="~/Scripts/dropzone/dropzone.css" rel="stylesheet" />
+    <script src="~/Scripts/dropzone/dropzone.js"></script>
+    <style>
+        #dropZone {
+            background: gray;
+            border: black dashed 3px;
+            width: 800px;
+            padding: 50px;
+            text-align: center;
+            color: white;
+        }
+        #dropzoneForm{
+            border: 2px dashed blue;
+            margin: 0 auto;
+        }
+
+    </style>
+    <script>
+        Dropzone.options.dropzoneForm = {
+            init: function () {
+                this.on("complete", function (data) {
+                    //var res = eval('(' + data.xhr.responseText + ')');
+                    var res = JSON.parse(data.xhr.responseText);
+                });
+            }
+        };
+    </script>
+</head>
+<body>
+    <div class="jumbotron">
+        <form action="/admin/home/SaveUploadedFile" method="post" enctype="multipart/form-data" class="dropzone"
+              id="dropzoneForm" style="width: 850px; background: none;">
+            <div class="fallback">
+                <input name="file" type="file" multiple />
+                <input type="submit" value="Upload" />
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
