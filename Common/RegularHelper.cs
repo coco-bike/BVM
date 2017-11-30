@@ -27,7 +27,6 @@ namespace Common
         {
             return System.Text.RegularExpressions.Regex.IsMatch(email, @"\w*@\w*.(com|cn)");
         }
-
         /// <summary>
         /// 验证是否全是字母
         /// </summary>

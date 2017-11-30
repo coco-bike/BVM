@@ -548,7 +548,7 @@ namespace API.Controllers
         //[HttpGet]
         //public JsonNetResult GetTAuditFile(string nickName)
         //{
-        //    if (!RegularHelper.IsLetter(nickName))
+        //if (!RegularHelper.IsLetter(nickName))
         //    {
         //        return JsonNetResult(ResultStatus.NameErr);
         //    }
@@ -566,7 +566,7 @@ namespace API.Controllers
         //        return JsonNetResult(ResultStatus.Success, userUpfile);
         //    return JsonNetResult(ResultStatus.Fail);
         //}
-        #endregion
+        //#endregion
 
         #region 公共方法
         /// <summary>
