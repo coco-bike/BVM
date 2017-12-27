@@ -7,12 +7,13 @@ using UI.Controllers.Base;
 using IService;
 using Common;
 using Model;
+using System.Web.Routing;
+using UI.Services;
 
 namespace UI.Areas.Web.Controllers
 {
     public class UserController : JsonController
     {
-        static string usercode = null;
         //
         // GET: /Web/User/
         /// <summary>
@@ -21,7 +22,13 @@ namespace UI.Areas.Web.Controllers
         /// <returns></returns>
         public ActionResult Login()
         {
-           return View();
+            var key = Request.Cookies["sessionId"].Value;
+            if(CacheHelper.Get(key)!=null)
+            {
+               
+                return View("Index");
+            }
+            return View();          
         }
         //
         // GET: /Web/register/
@@ -41,18 +48,22 @@ namespace UI.Areas.Web.Controllers
         {
             return View();
         }
+        [Authentication]
         public ActionResult Index()
         {
             return View();
         }
+        [Authentication]
         public ActionResult tables()
         {
             return View();
         }
+        [Authentication]
         public ActionResult charts()
         {
             return View();
         }
+        [Authentication]
         public ActionResult navbar()
         {
             return View();
@@ -89,7 +100,7 @@ namespace UI.Areas.Web.Controllers
             var md5password = EncryptionHelper.GetMd5Str(password);
             var user = this._userService.GetList(s => s.EMail == email && s.Password == md5password && s.Status == 1).FirstOrDefault();
             if (user != null && user.Role.Authoritys.FirstOrDefault().Id == 1)
-            {
+            {   
                 string sessionId = Guid.NewGuid().ToString();
                 Response.Cookies["sessionId"].Value = sessionId;
                 if (autologin==true)
@@ -130,7 +141,7 @@ namespace UI.Areas.Web.Controllers
             }
             Tuple<string, bool> items = SendEmail(email, "亚太官网后台", "用户注册码");
             string code = items.Item1;
-            usercode = code;
+            Session.Add("VerifyCode", code);
             bool sendRes = items.Item2;
             if (sendRes)
             {
@@ -152,7 +163,8 @@ namespace UI.Areas.Web.Controllers
         /// <returns></returns>
         public JsonBackResult RegisterUserInfo(string email,string name,string password,string code)
         {
-           var user = this._userService.GetList(s => s.EMail == email).FirstOrDefault();
+            var usercode = Session["VerifyCode"].ToString();
+            var user = this._userService.GetList(s => s.EMail == email).FirstOrDefault();
             if(user!=null)
             {
                 return JsonBackResult(ResultStatus.EmailExist, "你输入的电子邮箱已经注册过");
@@ -194,7 +206,7 @@ namespace UI.Areas.Web.Controllers
             }
             Tuple<string, bool> items = SendEmail(email, "亚太官网", "用户找回密码验证码");
             string code = items.Item1;
-            usercode = code;
+            Session.Add("ReVerifyCode", code);
             bool sendRes = items.Item2;
             if (sendRes)
             {
@@ -207,8 +219,6 @@ namespace UI.Areas.Web.Controllers
             }
             return JsonBackResult(ResultStatus.Fail);
         }
-
-
         /// <summary>
         /// 用户找回密码发送验证码
         /// </summary>
@@ -216,6 +226,7 @@ namespace UI.Areas.Web.Controllers
         /// <returns></returns>
         public JsonBackResult ValidatePwdBackCode(string code)
         {
+            var usercode = Session["ReVerifyCode"].ToString();
             if (usercode == code)
             {
                 return JsonBackResult(ResultStatus.Success);

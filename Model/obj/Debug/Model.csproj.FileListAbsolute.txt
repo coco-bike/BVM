@@ -80,4 +80,3 @@ G:\Git\BVM\Model\bin\Debug\zh-Hans\EntityFramework.resources.dll
 G:\Git\BVM\Model\bin\Debug\zh-Hans\EntityFramework.SqlServer.resources.dll
 G:\Git\BVM\Model\obj\Debug\Model.dll
 G:\Git\BVM\Model\obj\Debug\Model.pdb
-G:\Git\BVM\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache

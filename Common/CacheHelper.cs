@@ -9,13 +9,12 @@ using System.Web.Caching;
 
 namespace Common
 {
-public   class CacheHelper
+public class CacheHelper
     {
         public static bool Set(string key, object value, DateTime dt)
         {
             return Set(key, value, null, dt, Cache.NoSlidingExpiration, CacheItemPriority.High, null);
         }
-
         /// <summary>
         /// 获取缓存对象
         /// </summary>
@@ -23,7 +22,6 @@ public   class CacheHelper
         {
             return GetPrivate(key);
         }
-
         /// <summary>
         /// 判断缓存中是否含有缓存该键
         /// </summary>

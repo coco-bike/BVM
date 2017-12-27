@@ -164,6 +164,7 @@
     </Compile>
     <Compile Include="Models\PagingResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\AuthenticationAttribute .cs" />
     <Compile Include="Services\MyExceptionAttribute.cs" />
   </ItemGroup>
   <ItemGroup>
