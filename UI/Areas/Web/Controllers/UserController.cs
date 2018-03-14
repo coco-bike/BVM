@@ -22,13 +22,18 @@ namespace UI.Areas.Web.Controllers
         /// <returns></returns>
         public ActionResult Login()
         {
-            var key = Request.Cookies["sessionId"].Value;
-            if(CacheHelper.Get(key)!=null)
+            var a = Request.Cookies["sessionId"];
+            if(a!=null)
             {
-               
-                return View("Index");
+                var key = Request.Cookies["sessionId"].Value;
+                if (CacheHelper.Get(key) != null)
+                {
+
+                    return View("Index");
+                }
+                return View();        
             }
-            return View();          
+            return View();
         }
         //
         // GET: /Web/register/

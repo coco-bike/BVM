@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/Plugs/bootstrap-fileinput/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Plugs/bootstrap-fileinput/css/fileinput.css" rel="stylesheet" />
+    <title>@ViewBag.Title - 我的 ASP.NET 应用程序</title>
+</head>
+<body>
+    <div class="container kv-main">
+        <br>
+        <form enctype="multipart/form-data">
+
+            <div class="form-group">
+                <input id="file-1" type="file" data-overwrite-initial="false" data-min-file-count="1">
+            </div>
+
+        </form>
+    </div>
+    <button onclick="aaa('/Imgs/cft.png')">点击</button>
+
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.js"></script>
+    <script src="~/Plugs/bootstrap-fileinput/js/fileinput.js"></script>
+    <script src="~/Plugs/bootstrap-fileinput/js/fileinput_locale_zh.js"></script>
+    <script>
+        var config = {
+            uploadUrl: "../../admin/home/SaveUploadedFile", // you must set a valid URL here else you will get an error
+            allowedFileExtensions: ['jpg', 'png', 'gif'],
+            overwriteInitial: false,
+            maxFileSize: 40000,
+            minFileCount: 2,
+            slugCallback: function (filename) {
+                return filename.replace('(', '_').replace(']', '_');
+            },
+            initialPreviewCount: 2,
+            // setup initial preview with data keys
+            initialPreview: '',
+            // initial preview configuration
+          
+            overwriteInitial: false,
+            initialPreviewShowDelete: true,
+        };
+
+        $("#file-1").fileinput(config);
+        $("#file-1").on('fileclear', function () {
+            alert(123);
+        });
+
+
+        function aaa(url) {
+            config.initialPreview = [
+                "<img src='"
+                + url
+                + "'class='file-preview-image'>",
+            ],
+            $("#file-1").fileinput('refresh', config);
+        }
+
+    </script>
+
+</body>
+</html>

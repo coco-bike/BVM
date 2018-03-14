@@ -41,6 +41,7 @@
   <ItemGroup>
     <Reference Include="Autofac">
       <HintPath>..\..\..\..\..\..\File\EF快速开发框架Autofac\EF快速开发框架Autofac\UI\Libs\Autofac.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Autofac.Integration.Mvc">
       <HintPath>..\..\..\..\..\..\File\EF快速开发框架Autofac\EF快速开发框架Autofac\UI\Libs\Autofac.Integration.Mvc.dll</HintPath>
@@ -151,6 +152,7 @@
     <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
     <Compile Include="Areas\Admin\Controllers\SaleController.cs" />
     <Compile Include="Areas\Admin\Controllers\UserController.cs" />
+    <Compile Include="Areas\Web\Controllers\HomeController.cs" />
     <Compile Include="Areas\Web\Controllers\MachineController.cs" />
     <Compile Include="Areas\Web\Controllers\ProductController.cs" />
     <Compile Include="Areas\Web\Controllers\SaleController.cs" />
@@ -273,6 +275,43 @@
     <Content Include="Areas\Web\Views\User\navbar.cshtml" />
     <Content Include="Areas\Web\Views\User\cards.cshtml" />
     <Content Include="Areas\Web\Views\User\blank.cshtml" />
+    <Content Include="Areas\Web\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\Bootstrapfileinput.cshtml" />
+    <Content Include="Plugs\bootstrap-fileinput\bootstrap-3.3.4-dist\css\bootstrap-theme.css" />
+    <Content Include="Plugs\bootstrap-fileinput\bootstrap-3.3.4-dist\css\bootstrap-theme.min.css" />
+    <Content Include="Plugs\bootstrap-fileinput\bootstrap-3.3.4-dist\css\bootstrap.css" />
+    <Content Include="Plugs\bootstrap-fileinput\bootstrap-3.3.4-dist\css\bootstrap.min.css" />
+    <Content Include="Plugs\bootstrap-fileinput\bootstrap-3.3.4-dist\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Plugs\bootstrap-fileinput\bootstrap-3.3.4-dist\js\bootstrap.js" />
+    <Content Include="Plugs\bootstrap-fileinput\bootstrap-3.3.4-dist\js\bootstrap.min.js" />
+    <Content Include="Plugs\bootstrap-fileinput\bootstrap-3.3.4-dist\js\npm.js" />
+    <Content Include="Plugs\bootstrap-fileinput\css\bootstrap.min.css" />
+    <Content Include="Plugs\bootstrap-fileinput\css\fileinput.css" />
+    <Content Include="Plugs\bootstrap-fileinput\css\fileinput.min.css" />
+    <Content Include="Plugs\bootstrap-fileinput\examples\index-2.html" />
+    <Content Include="Plugs\bootstrap-fileinput\examples\index.html" />
+    <Content Include="Plugs\bootstrap-fileinput\img\loading-sm.gif" />
+    <Content Include="Plugs\bootstrap-fileinput\img\loading.gif" />
+    <Content Include="Plugs\bootstrap-fileinput\js\bootstrap.min.js" />
+    <Content Include="Plugs\bootstrap-fileinput\js\fileinput.js" />
+    <Content Include="Plugs\bootstrap-fileinput\js\fileinput.min.js" />
+    <Content Include="Plugs\bootstrap-fileinput\js\fileinput_locale_de.js" />
+    <Content Include="Plugs\bootstrap-fileinput\js\fileinput_locale_es.js" />
+    <Content Include="Plugs\bootstrap-fileinput\js\fileinput_locale_hu.js" />
+    <Content Include="Plugs\bootstrap-fileinput\js\fileinput_locale_LANG.js" />
+    <Content Include="Plugs\bootstrap-fileinput\js\fileinput_locale_ru.js" />
+    <Content Include="Plugs\bootstrap-fileinput\js\fileinput_locale_uk.js" />
+    <Content Include="Plugs\bootstrap-fileinput\js\fileinput_locale_zh.js" />
+    <Content Include="Plugs\bootstrap-fileinput\js\jquery-2.0.3.min.js" />
+    <Content Include="Plugs\WebUploader\icons.psd" />
+    <Content Include="Plugs\WebUploader\progress.psd" />
+    <Content Include="Plugs\bootstrap-fileinput\bootstrap-3.3.4-dist\css\bootstrap-theme.css.map" />
+    <Content Include="Plugs\bootstrap-fileinput\bootstrap-3.3.4-dist\css\bootstrap.css.map" />
+    <Content Include="Plugs\bootstrap-fileinput\bootstrap-3.3.4-dist\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Plugs\bootstrap-fileinput\bootstrap-3.3.4-dist\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Plugs\bootstrap-fileinput\bootstrap-3.3.4-dist\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Plugs\bootstrap-fileinput\bootstrap-3.3.4-dist\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Plugs\bootstrap-fileinput\fonts\glyphicons-halflings-regular.woff" />
     <None Include="Properties\PublishProfiles\111.pubxml" />
     <None Include="Properties\PublishProfiles\11111.pubxml" />
     <None Include="Properties\PublishProfiles\2323.pubxml" />
@@ -320,6 +359,16 @@
     <Content Include="Libs\Spring.Web.Extensions.dll" />
     <Content Include="Libs\Spring.Web.Mvc4.dll" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
+    <Content Include="Plugs\WebUploader\expressInstall.swf" />
+    <Content Include="Plugs\WebUploader\icons.png" />
+    <Content Include="Plugs\WebUploader\image.png" />
+    <Content Include="Plugs\WebUploader\jquery.js" />
+    <Content Include="Plugs\WebUploader\progress.png" />
+    <Content Include="Plugs\WebUploader\style.css" />
+    <Content Include="Plugs\WebUploader\success.png" />
+    <Content Include="Plugs\WebUploader\upload.js" />
+    <Content Include="Plugs\WebUploader\webuploader.css" />
+    <Content Include="Plugs\WebUploader\webuploader.js" />
     <Content Include="Scripts\dropzone\basic.css" />
     <Content Include="Scripts\dropzone\basic.min.css" />
     <Content Include="Scripts\dropzone\dropzone-amd-module.js" />

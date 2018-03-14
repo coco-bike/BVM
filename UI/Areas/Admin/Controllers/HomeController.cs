@@ -25,6 +25,10 @@ namespace UI.Areas.Admin.Controllers
         {
             return View();
         }
+        public ActionResult Bootstrapfileinput()
+        {
+            return View();
+        }
         public ActionResult SaveUploadedFile()
         {
             bool isSavedSuccessfully = true;
@@ -62,8 +66,6 @@ namespace UI.Areas.Admin.Controllers
             {
                 isSavedSuccessfully = false;
             }
-
-
             if (isSavedSuccessfully)
             {
                 return Json(new { Message = fName });
@@ -158,7 +160,6 @@ namespace UI.Areas.Admin.Controllers
             }
         }
 
-
-
+       
     }
 }

@@ -1,0 +1,59 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div class=".test" id="abc">
+        <p id="@ViewBag.Id" name="aaaa" class=".abc"></p>
+        <input type="button" id="text" />
+    </div>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+    <script>
+        $(function () {
+            $("#text").click(function () {
+                var a = $("#abc .abc").attr("id");
+                alert(a);
+            });
+
+            getData();
+        })
+
+
+        function getData() {
+            $.ajax({
+                type: "Post",
+                url: "../../../Web/Home/GetData",
+                data: "",
+                dataType: "Json",
+                success: function (data) {
+                    alert(data.Msg);
+                    var str1 = "#il" + commitId;
+                    $(str1).css('display', 'none');
+                }
+            });
+        }
+
+        function deleteCommit(Id) {
+            $.ajax({
+                type: "Post",
+                url: "../../../Web/Home/DestoryCommment",
+                data: { "commitId": Id },
+                dataType: "Json",
+                success: function (data) {
+                    alert(data.Msg);
+                    var str1 = "#il" + commitId;
+                    $(str1).css('display', 'none');
+                }
+            });
+        }
+
+    </script>
+</body>
+</html>

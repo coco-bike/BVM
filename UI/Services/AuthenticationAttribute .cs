@@ -12,12 +12,17 @@ namespace UI.Services
     public class AuthenticationAttribute : ActionFilterAttribute
     {
         public override void OnActionExecuting(ActionExecutingContext filterContext)
-        {   string key = filterContext.HttpContext.Request.Cookies["sessionId"].Value;
-            if ( CacheHelper.Get(key)==null)
+        {
+            var userKey = filterContext.HttpContext.Request.Cookies["sessionId"];
+            if (userKey != null)
             {
-                filterContext.Result = new RedirectResult("../user/Login");
-            }             
-            base.OnActionExecuting(filterContext);
+                string key = filterContext.HttpContext.Request.Cookies["sessionId"].Value;
+                if (CacheHelper.Get(key) == null)
+                {
+                    filterContext.Result = new RedirectResult("../user/Login");
+                }
+                base.OnActionExecuting(filterContext);
+            }
         }
     }
 }
